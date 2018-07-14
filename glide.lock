@@ -1,0 +1,10 @@
+hash: fc68b363aeb1250f68cedab757a4ae2c63502a3dd2445ce522d2369da88b68b9
+updated: 2018-07-13T19:02:43.6376872-07:00
+imports:
+- name: github.com/hzhang08/chainnew
+  version: 6c5ccc262819c6e699986ebf1a3c5c526dcf55f4
+  repo: git@github.com:hzhang08/chainnew.git
+  subpackages:
+  - blockchain
+  - main
+testImports: []

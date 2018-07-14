@@ -1,0 +1,7 @@
+package: .
+import:
+- package: github.com/hzhang08/chainnew
+  repo: git@github.com:hzhang08/chainnew.git
+  subpackages:
+  - blockchain
+  - main
