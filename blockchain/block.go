@@ -13,8 +13,9 @@ type Block struct {
 	Timestamp string
 	Hash      string
 	PreHash   string
-	Nonce     int
-	Target    big.Int
+	Nonce     uint64
+	Target    *big.Int
+	PreBlock  *Block
 }
 
 func calculateHash(block *Block) string {

@@ -18,5 +18,5 @@ func main() {
 
 	//var hash blockchain.Hash
 
-	fmt.Println(generateDifficulty())
+	fmt.Println(blockchain.generateDifficulty())
 }
