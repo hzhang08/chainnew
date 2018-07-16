@@ -20,6 +20,6 @@ func main() {
 
 	//var hash blockchain.Hash
 
-	fmt.Println(blockchain.generateDifficulty())
+	fmt.Println(blockchain.GenerateDifficulty())
 
 }
