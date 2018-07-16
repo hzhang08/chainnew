@@ -42,6 +42,19 @@ func generateBlock(oldBlock *Block) (*Block, error) {
 	return &newBlock, nil
 }
 
+func generateGenesisBlock() (*Block, error) {
+	var newBlock Block
+
+	t := time.Now()
+
+	newBlock.Index = 0
+	newBlock.Timestamp = t.String()
+	newBlock.PreHash = ""
+	newBlock.Hash = calculateHash(&newBlock)
+
+	return &newBlock, nil
+}
+
 func generateDifficulty() *big.Int {
 	difficulty := big.NewInt(1)
 	difficulty.Lsh(difficulty, 200)

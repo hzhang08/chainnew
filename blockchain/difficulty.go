@@ -6,7 +6,6 @@ package blockchain
 
 import (
 	"math/big"
-	"time"
 )
 
 // HashSize of array used to store hashes.  See Hash.
@@ -161,6 +160,8 @@ func CalcWork(bits uint32) *big.Int {
 // can have given starting difficulty bits and a duration.  It is mainly used to
 // verify that claimed proof of work by a block is sane as compared to a
 // known good checkpoint.
+
+/*
 func (b *BlockChain) calcEasiestDifficulty(bits uint32, duration time.Duration) uint32 {
 	// Convert types used in the calculations below.
 	durationVal := int64(duration / time.Second)
@@ -194,11 +195,14 @@ func (b *BlockChain) calcEasiestDifficulty(bits uint32, duration time.Duration) 
 
 	return BigToCompact(newTarget)
 }
+*/
 
 // findPrevTestNetDifficulty returns the difficulty of the previous block which
 // did not have the special testnet minimum difficulty rule applied.
 //
 // This function MUST be called with the chain state lock held (for writes).
+
+/*
 func (b *BlockChain) findPrevTestNetDifficulty(startNode *blockNode) uint32 {
 	// Search backwards through the chain for the last block without
 	// the special rule applied.
@@ -217,12 +221,15 @@ func (b *BlockChain) findPrevTestNetDifficulty(startNode *blockNode) uint32 {
 	}
 	return lastBits
 }
+*/
 
 // calcNextRequiredDifficulty calculates the required difficulty for the block
 // after the passed previous block node based on the difficulty retarget rules.
 // This function differs from the exported CalcNextRequiredDifficulty in that
 // the exported version uses the current best chain as the previous block node
 // while this function accepts any block node.
+
+/*
 func (b *BlockChain) calcNextRequiredDifficulty(lastNode *blockNode, newBlockTime time.Time) (uint32, error) {
 	// Genesis block.
 	if lastNode == nil {
@@ -303,15 +310,19 @@ func (b *BlockChain) calcNextRequiredDifficulty(lastNode *blockNode, newBlockTim
 
 	return newTargetBits, nil
 }
+*/
 
 // CalcNextRequiredDifficulty calculates the required difficulty for the block
 // after the end of the current best chain based on the difficulty retarget
 // rules.
 //
 // This function is safe for concurrent access.
-func (b *BlockChain) CalcNextRequiredDifficulty(timestamp time.Time) (uint32, error) {
+
+/*
+unc (b *BlockChain) CalcNextRequiredDifficulty(timestamp time.Time) (uint32, error) {
 	b.chainLock.Lock()
 	difficulty, err := b.calcNextRequiredDifficulty(b.bestChain.Tip(), timestamp)
 	b.chainLock.Unlock()
 	return difficulty, err
 }
+*/

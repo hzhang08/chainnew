@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/hzhang08/chainnew/blockchain"
 )
 
-var blockArray []Block
+var blockArray []blockchain.Block
 
 func main() {
 
@@ -19,4 +21,5 @@ func main() {
 	//var hash blockchain.Hash
 
 	fmt.Println(blockchain.generateDifficulty())
+
 }
