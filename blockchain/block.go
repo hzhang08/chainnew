@@ -18,7 +18,8 @@ type Block struct {
 	PreBlock  *Block
 }
 
-func calculateHash(block *Block) string {
+//CalculateHash calculates hash for a block
+func CalculateHash(block *Block) string {
 
 	data := string(block.Index) + block.Timestamp + block.PreHash
 
@@ -29,7 +30,8 @@ func calculateHash(block *Block) string {
 	return hex.EncodeToString(hashed)
 }
 
-func generateBlock(oldBlock *Block) (*Block, error) {
+//GenerateBlock generates a normal block
+func GenerateBlock(oldBlock *Block) (*Block, error) {
 	var newBlock Block
 
 	t := time.Now()
@@ -37,12 +39,13 @@ func generateBlock(oldBlock *Block) (*Block, error) {
 	newBlock.Index = oldBlock.Index + 1
 	newBlock.Timestamp = t.String()
 	newBlock.PreHash = oldBlock.Hash
-	newBlock.Hash = calculateHash(&newBlock)
+	newBlock.Hash = CalculateHash(&newBlock)
 
 	return &newBlock, nil
 }
 
-func generateGenesisBlock() (*Block, error) {
+//GenerateGenesisBlock generates first block
+func GenerateGenesisBlock() (*Block, error) {
 	var newBlock Block
 
 	t := time.Now()
@@ -50,12 +53,13 @@ func generateGenesisBlock() (*Block, error) {
 	newBlock.Index = 0
 	newBlock.Timestamp = t.String()
 	newBlock.PreHash = ""
-	newBlock.Hash = calculateHash(&newBlock)
+	newBlock.Hash = CalculateHash(&newBlock)
 
 	return &newBlock, nil
 }
 
-func generateDifficulty() *big.Int {
+//GenerateDifficulty generates block difficulty
+func GenerateDifficulty() *big.Int {
 	difficulty := big.NewInt(1)
 	difficulty.Lsh(difficulty, 200)
 	return difficulty
